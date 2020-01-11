@@ -18,7 +18,8 @@ class SopraList extends Component {
           <button type="button" onClick={this.handleClick}>Play game</button>
         {this.props.isFetching && <div>Loading...</div>}
         <ul>
-          {this.props.myData.map(d => <li key={d.id}>{d.title}</li>)}
+          {console.log(this.props.myData.Brastlewark)}
+          {/* {this.props.myData.Brastlewark[0].map(d => <li key={d.id}>{d.Brastlewark[0].name}</li>)} */}
         </ul>
       </div>
     );

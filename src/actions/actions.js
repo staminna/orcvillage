@@ -16,5 +16,5 @@ export const fetchData = () => dispatch => {
 };
 
 const getData = () => {
-    return fetch('https://jsonplaceholder.typicode.com/todos').then(res => res.json());
+    return fetch('https://raw.githubusercontent.com/rrafols/mobile_test/master/data.json').then(res => res.json());
 }
