@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchData } from '../actions/actions';
-// import { store } from '../store/store'
+import 'bootstrap/dist/css/bootstrap.min.css';
+// import * as ReactBootstrap from 'react-bootstrap';
+
+import '../layout.css'
 
 class SopraList extends Component {
   constructor(props) {
@@ -10,22 +13,15 @@ class SopraList extends Component {
       filter: "",
       data: []
     };
-      // store.subscribe(() => {
-      // // When state will be updated(in our case, when items will be fetched), 
-      // // we will update local component state and force component to rerender 
-      // // with new data.
-
-      // this.setState({
-      //   items: store.getState().items
-      // });
-
   }
-
 
   componentDidMount() {
     this.props.dispatch(fetchData());
-  
   };
+
+  componentDidUpdate() {
+    this.props.dispatch(fetchData()); // this deals with client side update though
+  }
 
   handleChange = event => {
     this.setState({ filter: event.target.value });
@@ -44,18 +40,37 @@ class SopraList extends Component {
       );
     });
     return (
-      <div>
-        <input value={filter} onChange={this.handleChange} />
-        {filteredData.map(item => (
-          <div key={item.id}>
-            <div> {item.name} </div>
+         <div className="container-fluid">
+          <div className="row">
+            <div className="col-md-12">
+              <div className="jumbotron">
+                <h2>
+                <input value={filter} onChange={this.handleChange} />
+                {this.props.isFetching && <div>Loading...</div>}
+                  Hello, Sopra Speria!
+                </h2>
+                <p>
+                  You may start searching for Orcs in the vilage by typing into the search box above.
+                </p>
+              </div>
+            </div>
           </div>
+          {filteredData.map(item => (
+            <div className="row">
+              <div className="col-md-4">
+               <h2>
+                 {item.name} 
+               </h2>
+                <img src={item.thumbnail} />
+              <p>
+                Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
+              </p>
+              </div>
+            </div>
         ))}
-      {this.props.isFetching && <div>Loading...</div>}
-      <ul>
-        {console.log(this.props.myData.Brastlewark)}
-      </ul>
-    </div>
+
+        {/* {console.log(this.props.myData.Brastlewark)} */}
+        </div>
     );
   }
 }
