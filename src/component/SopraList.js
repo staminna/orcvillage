@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { fetchData } from '../actions/actions';
 import 'bootstrap/dist/css/bootstrap.min.css';
 // import * as ReactBootstrap from 'react-bootstrap';
+import { Row, Col, Image } from 'react-bootstrap'
 
 import '../layout.css'
 
@@ -19,9 +20,9 @@ class SopraList extends Component {
     this.props.dispatch(fetchData());
   };
 
-  componentDidUpdate() {
-    this.props.dispatch(fetchData()); // this deals with client side update though
-  }
+  // componentDidUpdate() {
+  //   this.props.dispatch(fetchData()); // this deals with client side update though
+  // }
 
   handleChange = event => {
     this.setState({ filter: event.target.value });
@@ -50,25 +51,28 @@ class SopraList extends Component {
                   Hello, Sopra Speria!
                 </h2>
                 <p>
-                  You may start searching for Orcs in the vilage by typing into the search box above.
+                {!this.props.isFetching && <div>You may start searching for Orcs in the vilage by typing into the search box above.</div>}
                 </p>
               </div>
             </div>
           </div>
-          {filteredData.map(item => (
-            <div className="row">
-              <div className="col-md-4">
-               <h2>
-                 {item.name} 
-               </h2>
-                <img src={item.thumbnail} />
-              <p>
-                Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-              </p>
-              </div>
-            </div>
-        ))}
 
+          <div class="container">
+            <div class="row">
+                {filteredData.map(item => (
+                <div class="col-md-4 col-xs-6">
+                  <div class="card">
+                    <img class="card-img-top img-fluid" src={item.thumbnail} alt="Card image cap"/>
+                    <div class="card-block">
+                      <h5 class="card-title">Card title</h5>
+                      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                    </div>
+                  </div>
+                </div> 
+              ))}
+            </div>
+          </div>
         {/* {console.log(this.props.myData.Brastlewark)} */}
         </div>
     );
