@@ -1,5 +1,15 @@
+.h1, h1 {
+  padding-left: 0.35em;
+}
 
 .row > div[class*='col-sm-3'] {
     display: flex;
     flex:1 0 auto;
+}
+
+@media (min-width: 576px) {
+  .jumbotron {
+    padding: 2rem 16.5rem;
+
   }
+}

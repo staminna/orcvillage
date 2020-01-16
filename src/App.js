@@ -1,12 +1,10 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchData } from './actions';
+import { fetchData } from './actions/actions';
+import './App.css';
 
-class SopraList extends Component {
+
+class App extends Component {
   constructor(props) {
     super(props);
   }
@@ -22,4 +20,8 @@ const mapStateToProps = ({ things: { myData, isFetching } }) => ({
   isFetching
 });
 
-export default connect(mapStateToProps)(SopraList);
+const mapDispatchToProps = {
+  fetchData,
+ }
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

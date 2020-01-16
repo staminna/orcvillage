@@ -15,6 +15,7 @@ export const fetchData = () => dispatch => {
 });
 };
 
-const getData = () => {
-    return fetch('https://raw.githubusercontent.com/rrafols/mobile_test/master/data.json').then(res => res.json());
+const getData = async () => {
+    const res = await fetch('https://raw.githubusercontent.com/rrafols/mobile_test/master/data.json');
+    return await res.json();
 }
