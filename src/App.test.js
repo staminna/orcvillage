@@ -1,6 +1,6 @@
 import React from 'react';
 import App from './App'
-import SopraList from './component/SopraList';
+import OrcList from './component/OrcList';
 import waitUntil from 'async-wait-until';
 import Enzyme, { shallow } from 'enzyme';
 import nock from 'nock';
@@ -13,22 +13,22 @@ Enzyme.configure({ adapter: new Adapter() });
 describe('<App />', () => {
   beforeAll(() => {
     // Prepare nock to respond to a request
-    // to the SopraList API.
+    // to the OrcList API.
     // In this case our test will always think that london
     // is sunny.
-    nock('https://SopraList.example.com/api')
-        .get('/SopraList?q=london')
+    nock('https://OrcList.example.com/api')
+        .get('/OrcList?q=london')
         .reply(200, getIssuesResponse);
     });
-    it('Component fetching SopraList from API', async (done) => {
+    it('Component fetching OrcList from API', async (done) => {
         const root = shallow(<App />);
-        let componentsSopraList = {};
-        // We wait until the state has a SopraList summary, but we
+        let componentsOrcList = {};
+        // We wait until the state has a OrcList summary, but we
         // don't care yet about the content.
-        await waitUntil(() => root.state('SopraList').summary !== null);
+        await waitUntil(() => root.state('OrcList').summary !== null);
         // It is better to have the expectation here and not inside
         // the waitUntil condition.
-        expect(componentsSopraList.summary).toEqual('sunny');
+        expect(componentsOrcList.summary).toEqual('sunny');
         done();
     });
 });

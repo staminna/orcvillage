@@ -1,18 +1,27 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchData } from './actions/actions';
-import './App.css';
-
+import { fetchData } from '../src/actions/actions';
 
 class App extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      filter: "",
+      data: [],
+    };
   }
 
-  handleClick() {
+  componentDidMount() {
     this.props.dispatch(fetchData());
-  }
+  };
 
+  render() {
+    return (
+      <div className="header">
+        <h1> Hello, Sopra Speria </h1>
+      </div>
+    );
+  }
 }
 
 const mapStateToProps = ({ things: { myData, isFetching } }) => ({
@@ -20,8 +29,5 @@ const mapStateToProps = ({ things: { myData, isFetching } }) => ({
   isFetching
 });
 
-const mapDispatchToProps = {
-  fetchData,
- }
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps)(App);
