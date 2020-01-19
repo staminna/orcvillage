@@ -17,11 +17,16 @@ class OrcList extends Component {
   }
 
   componentDidMount() {
-    this.props.dispatch(fetchData());
+    try {
+      this.props.dispatch(fetchData());
+    }
+    catch(e) {
+      // Always include a .catch() after a Promise (an API call)
+      console.error('Error occured fetching asynchronously' + e);
+    }
   };
 
   render() {
-    // const filteredData = this.props.filteredData;
     return (
       <div className="container-fluid">
         <App />
@@ -31,7 +36,7 @@ class OrcList extends Component {
   }
 }
 
-const mapStateToProps = ({ things: { myData, isFetching } }) => ({
+const mapStateToProps = ({ response: { myData, isFetching } }) => ({
   myData,
   isFetching
 });

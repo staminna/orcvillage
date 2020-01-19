@@ -20,5 +20,9 @@
 
 .inputbox {
  width: 90%;
- max-width: 10em;
+ max-width: 10.5em;
+}
+
+.infobox {
+  padding-bottom: 2em;
 }

@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
-import store from './store';
+import store from './store/store';
 import OrcList from './component/OrcList';
-// import './style.css';
 
 class App extends Component {
 

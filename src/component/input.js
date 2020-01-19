@@ -33,12 +33,14 @@ class InputText extends React.Component {
       return (
         <div className="header">
           <h2>
-            <input className="inputbox" onChange={this.handleChange} placeholder="please search" />
+            <input className="inputbox" onChange={this.handleChange.bind(this)} placeholder="please search" />
           </h2>
           <h2>
             {this.props.isFetching && <div>Loading...</div>}
           </h2>
-            {!this.props.isFetching && <div>You may start searching for Orcs in the vilage by typing into the search box above. </div>}
+          <div className="infobox">
+            {!this.props.isFetching && <div>Search for Orcs in the vilage by typing into the search box above. </div>}
+          </div>
             <Orcs dataFromInput = {filteredData} />
         </div>
         )
@@ -46,9 +48,9 @@ class InputText extends React.Component {
 
 }
 
-const mapStateToProps = ({ things: { myData, isFetching } }) => ({
+const mapStateToProps = ({response: { myData, isFetching }}) => ({
   myData,
-  isFetching
+  isFetching,
 });
 
 
