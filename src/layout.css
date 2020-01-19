@@ -1,0 +1,28 @@
+/* .h1, h1 {
+  padding-left: 1.7em;
+} */
+
+.row > div[class*='col-sm-3'] {
+    display: flex;
+    flex:1 0 auto;
+}
+
+@media (min-width: 576px) {
+  .jumbotron {
+    padding: 2rem 16.5rem;
+
+  }
+}
+
+.header {
+  padding-left: 3em;
+}
+
+.inputbox {
+ width: 90%;
+ max-width: 10.5em;
+}
+
+.infobox {
+  padding-bottom: 2em;
+}

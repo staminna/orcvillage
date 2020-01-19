@@ -6,7 +6,7 @@ const initialState = {
   myData: []
 };
 
-const things = (state = initialState, action) => {
+const response = (state = initialState, action) => {
   switch (action.type) {
     case REQUEST_DATA:
         return {
@@ -25,7 +25,7 @@ const things = (state = initialState, action) => {
 };
 
 const rootReducer = combineReducers({
-  things // this key can be called anything, 'things' is just an example
+  response // this key can be called anything, 'response' is just an example
 });
 
 export default rootReducer;
