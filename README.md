@@ -1,10 +1,10 @@
 ## Find Orcs in Village.
 
-## Available Scripts
+## 1. `git clone https://github.com/staminna/orcvillage`
 
-In the project directory, you can run:
+## 2. `cd orcvillage`
 
-### `npm install`
+## 3. `npm install`
 
 Builds the app for production to the `build` folder.<br />
 It correctly bundles React in production mode and optimizes the build for the best performance.
@@ -15,12 +15,12 @@ Your app is ready to be deployed!
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
 
-### `npm test`
+### 4. `npm test`
 
 Launches the test runner in the interactive watch mode.<br />
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm start`
+### 5. `npm start`
 
 Runs the app in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
