@@ -5,7 +5,7 @@ export class App extends Component {
   render() {
     return (
       <div className="header">
-        <h1> Holla, Sopra Speria </h1>
+        <h1> Holla, Sopra Steria </h1>
       </div>
     );
   }
